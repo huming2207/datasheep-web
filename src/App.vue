@@ -1,51 +1,31 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+      <v-toolbar-title>
+        <a href="/browser" class="white--text font-weight-bold" style="text-decoration: none;">
+          DataSheep
+        </a>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn icon>
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-app-bar>
-
-    <v-content>
-      <HelloWorld />
-    </v-content>
+    <router-view />
+    <v-footer absolute class="primary white--text">
+      <v-spacer></v-spacer>
+      <a href="/about" class="white--text font-weight-regular" style="text-decoration: none;">
+        <v-icon class="primary white--text">mdi-information</v-icon>
+      </a>
+    </v-footer>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
 
 export default Vue.extend({
   name: "App",
-
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
     //
   }),
