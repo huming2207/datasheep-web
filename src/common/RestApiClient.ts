@@ -5,8 +5,8 @@ import { LOCAL_STORAGE_JWT } from "./Constant";
 export class RestApiClient {
   private encodedFormConfig: AxiosRequestConfig = {
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    }
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
   };
 
   public static loginWithJwt = (): AxiosRequestConfig => {
@@ -14,8 +14,8 @@ export class RestApiClient {
     if (token) {
       return {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       };
     }
     return {};
@@ -26,7 +26,7 @@ export class RestApiClient {
       "/api/auth/login",
       qs.stringify({
         username,
-        password
+        password,
       }),
       this.encodedFormConfig
     );
@@ -47,7 +47,7 @@ export class RestApiClient {
       qs.stringify({
         username,
         password,
-        email
+        email,
       }),
       this.encodedFormConfig
     );
