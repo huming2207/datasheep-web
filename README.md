@@ -12,6 +12,10 @@ Yet another Kanban system, for embedded software developers.
     - Vuelidate
     - Axios
 
+## Structure
+
+![doc/structure.png](doc/structure.png)
+
 ## Vue project setup 
 
 ### Project setup
