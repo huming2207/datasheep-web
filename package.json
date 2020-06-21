@@ -16,12 +16,12 @@
     "vue-class-component": "7.2.3",
     "vue-property-decorator": "9.0.0",
     "vue-router": "3.3.4",
-    "vuelidate": "^0.7.5",
+    "vuelidate": "0.7.5",
     "vuetify": "2.3.1"
   },
   "devDependencies": {
     "@types/qs": "6.9.3",
-    "@types/vuelidate": "^0.7.13",
+    "@types/vuelidate": "0.7.13",
     "@typescript-eslint/eslint-plugin": "3.3.0",
     "@typescript-eslint/parser": "3.3.0",
     "@vue/cli-plugin-babel": "4.4.4",
