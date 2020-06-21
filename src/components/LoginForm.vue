@@ -15,7 +15,7 @@
                   name="login"
                   prepend-icon="mdi-account"
                   type="text"
-                  :error-messages="errors"
+                  :error-messages="usernameErrors"
                   v-model="username"
                 />
                 <v-text-field
@@ -24,7 +24,7 @@
                   name="password"
                   type="password"
                   prepend-icon="mdi-key"
-                  :error-messages="errors"
+                  :error-messages="passwordErrors"
                   v-model="password"
                 />
               </v-form>
@@ -49,7 +49,7 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click="closeDialog()">
+            <v-btn color="primary" @click="dialog = !dialog">
               Okay
             </v-btn>
           </v-card-actions>
@@ -59,10 +59,17 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import { Component, Vue } from "vue-property-decorator";
+import { validationMixin } from "vuelidate";
+import { required } from "vuelidate/lib/validators";
 
-@Component
+@Component({
+  mixins: [validationMixin],
+  validations: {
+    username: { required },
+    password: { required },
+  },
+})
 export default class LoginForm extends Vue {
   username = "";
   password = "";
@@ -71,6 +78,7 @@ export default class LoginForm extends Vue {
   dialogText = "";
 
   async performLogin(): Promise<void> {
+    this.$v.$touch();
     try {
       const resp = await this.$api.loginUser(this.username, this.password);
       if (!resp.data.data || !resp.data.data.token) {
@@ -94,8 +102,18 @@ export default class LoginForm extends Vue {
     }
   }
 
-  closeDialog(): void {
-    this.dialog = false;
+  get usernameErrors(): string[] {
+    const errors: string[] = [];
+    if (!this.$v.username.$dirty) return errors;
+    !this.$v.username.required && errors.push("User name is required.");
+    return errors;
+  }
+
+  get passwordErrors(): string[] {
+    const errors: string[] = [];
+    if (!this.$v.password.$dirty) return errors;
+    !this.$v.password.required && errors.push("Password is required.");
+    return errors;
   }
 
   goToRegister(): void {
