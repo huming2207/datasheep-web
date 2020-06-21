@@ -1,6 +1,21 @@
-# datasheep-web
+# DataSheep Web UI
 
-## Project setup
+Yet another Kanban system, for embedded software developers.
+
+## Tech stacks
+
+- Language: TypeScript
+- Framework: 
+    - Vue 2
+    - Vue class-based components
+    - Vuetify
+    - Vuelidate
+    - Axios
+
+## Vue project setup 
+
+### Project setup
+
 ```
 npm install
 ```
@@ -19,6 +34,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
