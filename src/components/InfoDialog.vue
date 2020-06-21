@@ -28,6 +28,7 @@ export default class InfoDialog extends Vue {
 
   // Ref: https://stackoverflow.com/a/49119008
   get show(): boolean {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return this.$attrs.value as any; // Workaround for wrong typings
   }
 
