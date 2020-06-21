@@ -64,6 +64,7 @@ export default class LoginForm extends Vue {
 
   async performLogin(): Promise<void> {
     this.$v.$touch();
+    if (this.$v.$invalid) return; // Block invalid requests here
     try {
       const resp = await this.$api.loginUser(this.username, this.password);
       if (!resp.data.data || !resp.data.data.token) {
