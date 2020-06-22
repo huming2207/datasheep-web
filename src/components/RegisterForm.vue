@@ -122,10 +122,6 @@ export default class RegisterForm extends Vue {
     this.$router.push({ path: "/" });
   }
 
-  validate(): void {
-    this.$v.$touch();
-  }
-
   async performRegister(): Promise<void> {
     this.$v.$touch();
     if (this.$v.$invalid) return; // Block invalid requests here
