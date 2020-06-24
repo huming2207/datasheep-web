@@ -17,7 +17,7 @@
     "vue-property-decorator": "9.0.0",
     "vue-router": "3.3.4",
     "vuelidate": "0.7.5",
-    "vuetify": "2.3.1"
+    "vuetify": "2.3.2"
   },
   "devDependencies": {
     "@types/qs": "6.9.3",
